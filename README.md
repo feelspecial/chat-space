@@ -6,21 +6,20 @@
 |mail|string|null: false|
 
 ### Association
-- has_many :groups,throuth:members
+- has_many :groups,throuth:groups_users
 - has_many :messages  
-- has_many :members
+- has_many :groups_users
 
 ## groupsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|group_name|string|index: true, null: false|
-|menberlength|integer|null: false|
+|name|string|index: true, null: false|
 
 ### Association
-- has_many :users,throuth:members
+- has_many :users,throuth:groups_users
 - has_many :messages  
-- has_many :members
+- has_many :groups_users
 
 ## messegeテーブル
 
@@ -28,6 +27,8 @@
 |------|----|-------|
 |image|string|null: false|
 |text|string|null: false|
+|user_id|integer|null: false, foreign_key: true|
+|group_id|integer|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :group 
