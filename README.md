@@ -25,8 +25,8 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|image|string|null: false|
-|text|string|null: false|
+|image|string|
+|text|string|
 |user_id|integer|null: false, foreign_key: true|
 |group_id|integer|null: false, foreign_key: true|
 
