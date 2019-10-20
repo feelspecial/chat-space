@@ -2,10 +2,7 @@ $(document).on('turbolinks:load', function(){
 
   function buildHTML(message){
 
-    var addImage = '';
-    if (message.image.url) {
-      addImage = `<img src="${message.image.url}" class="lower-message__image">`;
-    }
+    image = (message.image.url) ? `<img src="${message.image.url}" class="lower-message__image">`: '';
 
   var html = `<div class="message" data-message-id="${message.id}"> 
         <div class="upper-message">
@@ -20,7 +17,7 @@ $(document).on('turbolinks:load', function(){
           <p class="lower-message__content">
             ${message.content}
           </p>
-          ${addImage}
+          ${image}
         </div>
       </div>`
   return html;
@@ -63,7 +60,6 @@ $(document).on('turbolinks:load', function(){
         data: {id: last_message_id}
       })
       .done(function(messages) {
-        console.log(messages);
         //追加するHTMLの入れ物を作る
         var insertHTML = '';
         //配列messagesの中身一つ一つを取り出し、HTMLに変換したものを入れ物に足し合わせる
