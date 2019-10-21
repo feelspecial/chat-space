@@ -66,3 +66,7 @@ gem 'haml-rails'
  gem 'carrierwave'
  gem 'mini_magick'
  gem 'jquery-turbolinks'
+
+ group :production do
+  gem 'unicorn', '5.4.1'
+end
